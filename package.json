@@ -4,7 +4,7 @@
 	"description": "Attach Algolia search and synchronize indices with your data based off of GraphQL types",
 	"main": "lib/index.cjs.js",
 	"module": "lib/index.esm.js",
-	"author": "Luke Smetham",
+	"author": "Luke Smetham <luke@smetham.dev>",
 	"license": "MIT",
 	"scripts": {
 		"build": "rollup -c",

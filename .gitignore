@@ -83,6 +83,9 @@ web_modules/
 .next
 out
 
+# Hidden files
+.DS_Store
+
 # Nuxt.js build / generate output
 .nuxt
 dist
