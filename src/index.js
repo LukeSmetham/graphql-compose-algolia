@@ -1,0 +1,1 @@
+export { composeAlgoliaIndex } from './composeAlgoliaIndex';

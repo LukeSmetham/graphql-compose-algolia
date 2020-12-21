@@ -1,0 +1,41 @@
+{
+	"name": "graphql-compose-algolia",
+	"version": "0.1.0",
+	"description": "Attach Algolia search and synchronize indices with your data based off of GraphQL types",
+	"main": "lib/index.cjs.js",
+	"module": "lib/index.esm.js",
+	"author": "Luke Smetham",
+	"license": "MIT",
+	"scripts": {
+		"build": "rollup -c",
+		"dev": "rollup -c -w"
+	},
+	"peerDependencies": {
+		"algoliasearch": "^4.8.3",
+		"graphql-compose": "^7.23.0",
+		"graphql-scalars": "^1.6.1",
+		"lodash.pick": "^4.4.0",
+		"lodash.pickby": "^4.6.0"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.12.8",
+		"@babel/core": "^7.12.9",
+		"@babel/node": "^7.12.6",
+		"@babel/plugin-proposal-async-generator-functions": "^7.12.1",
+		"@babel/plugin-proposal-class-properties": "^7.12.1",
+		"@babel/plugin-transform-runtime": "^7.12.1",
+		"@babel/preset-env": "^7.12.7",
+		"@rollup/plugin-babel": "^5.2.2",
+		"@rollup/plugin-commonjs": "^17.0.0",
+		"@rollup/plugin-node-resolve": "^11.0.1",
+		"algoliasearch": "^4.8.3",
+		"babel-eslint": "^10.1.0",
+		"babel-loader": "^8.2.2",
+		"babel-plugin-module-resolver": "^4.0.0",
+		"babel-plugin-transform-optional-chaining": "^7.0.0-beta.3",
+		"babel-preset-env": "^1.7.0",
+		"graphql-compose": "^7.23.0",
+		"graphql-scalars": "^1.6.1",
+		"rollup-plugin-peer-deps-external": "^2.2.4"
+	}
+}
