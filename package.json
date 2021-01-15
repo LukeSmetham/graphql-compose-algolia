@@ -8,7 +8,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/LukeSmetham/graphql-compose-algolia.git",
+		"url": "https://github.com/LukeSmetham/graphql-compose-algolia.git"
 	},
 	"scripts": {
 		"build": "rollup -c",
