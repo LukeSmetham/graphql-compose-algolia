@@ -6,6 +6,10 @@
 	"module": "lib/esm/index.js",
 	"author": "Luke Smetham <luke@smetham.dev>",
 	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/LukeSmetham/graphql-compose-algolia.git",
+	},
 	"scripts": {
 		"build": "rollup -c",
 		"clean": "rm -rf lib",
