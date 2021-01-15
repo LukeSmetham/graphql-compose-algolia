@@ -2,13 +2,14 @@
 	"name": "graphql-compose-algolia",
 	"version": "0.1.0",
 	"description": "Attach Algolia search and synchronize indices with your data based off of GraphQL types",
-	"main": "lib/index.cjs.js",
-	"module": "lib/index.esm.js",
+	"main": "lib/cjs/index.js",
+	"module": "lib/esm/index.js",
 	"author": "Luke Smetham <luke@smetham.dev>",
 	"license": "MIT",
 	"scripts": {
 		"build": "rollup -c",
-		"dev": "rollup -c -w"
+		"clean": "rm -rf lib",
+		"watch": "rollup -c -w"
 	},
 	"peerDependencies": {
 		"algoliasearch": "^4.8.3",

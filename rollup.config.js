@@ -8,11 +8,11 @@ export default {
 	input: './src/index.js',
 	output: [
 		{
-			file: `./lib/index.cjs.js`,
+			file: `./lib/cjs/index.js`,
 			format: 'cjs',
 		},
 		{
-			file: `./lib/index.esm.js`,
+			file: `./lib/esm/index.js`,
 			format: 'esm',
 		},
 	],
