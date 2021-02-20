@@ -1,5 +1,5 @@
 import { schemaComposer as globalSchemaComposer } from 'graphql-compose';
-import { JSON } from 'graphql-scalars';
+import { JSONResolver as JSON } from 'graphql-scalars';
 import algoliasearch from 'algoliasearch';
 
 import { createSearchResolver } from './resolvers';
