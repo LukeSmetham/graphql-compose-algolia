@@ -54,8 +54,8 @@ schemaComposer.addFields({
 	},
 	Mutation: {
 		userCreate: UserTC.mongooseResolvers.createOne().addMiddlewares([UserTC.algoliaMiddlewares.sync]),
-		userUpdate: UserTC.mongooseResolvers.createOne().addMiddlewares([UserTC.algoliaMiddlewares.sync]),
-		userRemove: UserTC.mongooseResolvers.createOne().addMiddlewares([UserTC.algoliaMiddlewares.remove]),
+		userUpdate: UserTC.mongooseResolvers.updateById().addMiddlewares([UserTC.algoliaMiddlewares.sync]),
+		userRemove: UserTC.mongooseResolvers.removeById().addMiddlewares([UserTC.algoliaMiddlewares.remove]),
 	}
 });
 ```
