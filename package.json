@@ -15,12 +15,14 @@
 		"clean": "rm -rf lib",
 		"watch": "rollup -c -w"
 	},
+	"dependencies": {
+		"lodash.pick": "^4.4.0",
+		"lodash.pickby": "^4.6.0"
+	},
 	"peerDependencies": {
 		"algoliasearch": "^4.8.3",
 		"graphql-compose": "^7.23.0",
-		"graphql-scalars": "^1.6.1",
-		"lodash.pick": "^4.4.0",
-		"lodash.pickby": "^4.6.0"
+		"graphql-scalars": "^1.6.1"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.12.8",
