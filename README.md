@@ -10,6 +10,7 @@ GraphQL Compose Example:
 ```js
 import { Schema } from 'mongoose';
 import { SchemaComposer } from 'graphql-compose';
+import { composeAlgolia } from 'graphql-compose-algolia';
 
 /** Instantiate the schema composer */
 const schemaComposer = new SchemaComposer();
