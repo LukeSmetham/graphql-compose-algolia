@@ -5,7 +5,7 @@ A plugin for [graphql-compose](https://github.com/graphql-compose/graphql-compos
 > So far I've only been using it in tandem with [graphql-compose-mongoose](https://github.com/graphql-compose/graphql-compose-mongoose) as in the examples below, so the library may be buggy, or totally broken in other environments until we can push updates.
 
 GraphQL Compose Example:
-> This example uses [graphql-compose-mongoose](https://github.com/graphql-compose/graphql-compose-mongoose) and the `withMiddlewares` functionality of `graphql-compose` resolvers. THis allows us to 
+> This example uses [graphql-compose-mongoose](https://github.com/graphql-compose/graphql-compose-mongoose) and the `withMiddlewares` functionality of `graphql-compose` resolvers.
 
 ```js
 import { Schema } from 'mongoose';
