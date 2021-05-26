@@ -7,9 +7,16 @@ import { createRemoveMiddleware, createSyncMiddleware } from './middlewares';
 
 export const composeAlgoliaIndex = (
     tc,
-    { idField = '_id', indexName, fields, schemaComposer = globalSchemaComposer } = {},
+    { 
+		idField = '_id', 
+		indexName, 
+		fields, 
+		schemaComposer = globalSchemaComposer,
+		appId,
+		apiKey,
+	} = {},
 ) => {
-    const index = algoliasearch(process.env.ALGOLIA_ID, process.env.ALGOLIA_KEY).initIndex(indexName);
+    const index = algoliasearch(appId, apiKey).initIndex(indexName);
 
     const { name: typeName } = tc.getType();
 
