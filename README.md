@@ -1,4 +1,5 @@
 # `graphql-compose-algolia`
+
 A plugin for [graphql-compose](https://github.com/graphql-compose/graphql-compose) that enriches your existing type composers with middlewares and resolvers to keep your data in sync with Algolia indicies.
 
 > This library is currently WIP.
@@ -17,46 +18,48 @@ const schemaComposer = new SchemaComposer();
 
 /** Define the Schema and create the model for our Users in MongoDB. */
 const UserSchema = new Schema({
-	name: {
-		type: 'String',
-		required: true,
-	},
-	email: {
-		type: 'String',
-		required: true,
-	},
-	organization: {
-		type: Schema.Types.ObjectId,
-		ref: 'Organization',
-		required: true,
-	},
+ name: {
+  type: 'String',
+  required: true,
+ },
+ email: {
+  type: 'String',
+  required: true,
+ },
+ organization: {
+  type: Schema.Types.ObjectId,
+  ref: 'Organization',
+  required: true,
+ },
 }, { collection: 'users' });
 
 const UserModel = mongoose.model('User', UserSchema);
 
 /** Configure composeAlgolia */
 const composeAlgoliaOpts = {
-	indexName: 'USERS',
-	fields: ['name', 'email', 'organization'],
-	schemaComposer,
+ indexName: 'USERS',
+ fields: ['name', 'email', 'organization'],
+ schemaComposer,
+ appId: process.env.ALGOLIA_ID,
+ apiKey: process.env.ALGOLIA_KEY,
 };
 
 /** Smash it all together */
 const UserTC = composeAlgolia(
-	composeMongoose(UserModel, { schemaComposer }),
-	composeAlgoliaOpts,
+ composeMongoose(UserModel, { schemaComposer }),
+ composeAlgoliaOpts,
 );
 
 /** Add some resolvers to your schema */
 schemaComposer.addFields({
-	Query: {
-		userById: UserTC.mongooseResolvers.findById(),
-		userSearch: UserTC.algoliaResolvers.search(),
-	},
-	Mutation: {
-		userCreate: UserTC.mongooseResolvers.createOne().addMiddlewares([UserTC.algoliaMiddlewares.sync]),
-		userUpdate: UserTC.mongooseResolvers.updateById().addMiddlewares([UserTC.algoliaMiddlewares.sync]),
-		userRemove: UserTC.mongooseResolvers.removeById().addMiddlewares([UserTC.algoliaMiddlewares.remove]),
-	}
+ Query: {
+  userById: UserTC.mongooseResolvers.findById(),
+  userSearch: UserTC.algoliaResolvers.search(),
+ },
+ Mutation: {
+  userCreate: UserTC.mongooseResolvers.createOne().addMiddlewares([UserTC.algoliaMiddlewares.sync]),
+  userUpdate: UserTC.mongooseResolvers.updateById().addMiddlewares([UserTC.algoliaMiddlewares.sync]),
+  userRemove: UserTC.mongooseResolvers.removeById().addMiddlewares([UserTC.algoliaMiddlewares.remove]),
+ }
 });
 ```
