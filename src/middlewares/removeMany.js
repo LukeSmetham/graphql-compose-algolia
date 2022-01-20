@@ -2,7 +2,7 @@ export const createRemoveManyMiddleware = (index, idField) => async (resolve, so
     const data = await resolve(source, args, context, info);
 
     try {
-        await index.deleteObjects(data.args.filter._operators[idField].in.map((id) => id.toString()));
+        await index.deleteObjects(args.filter._operators[idField].in.map((id) => id.toString()));
 
         return data;
     } catch (error) {
