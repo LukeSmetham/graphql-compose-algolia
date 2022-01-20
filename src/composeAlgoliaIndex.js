@@ -3,7 +3,7 @@ import { JSONResolver as JSON } from 'graphql-scalars';
 import algoliasearch from 'algoliasearch';
 
 import { createSearchResolver } from './resolvers';
-import { createRemoveMiddleware, createSyncMiddleware } from './middlewares';
+import { createRemoveMiddleware, createRemoveManyMiddleware, createSyncMiddleware, createSyncManyMiddleware } from './middlewares';
 
 export const composeAlgoliaIndex = (
     tc,
@@ -39,8 +39,10 @@ export const composeAlgoliaIndex = (
 
     // eslint-disable-next-line no-param-reassign
     tc.algoliaMiddlewares = {
-        remove: createRemoveMiddleware(index),
+        remove: createRemoveMiddleware(index, idField),
+        removeMany: createRemoveManyMiddleware(index, idField),
         sync: createSyncMiddleware(index, fields, idField),
+        syncMany: createSyncManyMiddleware(index, fields, idField),
     };
 
     // eslint-disable-next-line no-param-reassign
