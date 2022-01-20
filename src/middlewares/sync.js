@@ -5,10 +5,12 @@ export const createSyncMiddleware = (index, fields, idField) => async (resolve, 
     const data = await resolve(source, args, context, info);
 
     try {
-        await index.saveObject({
+        await index.partialUpdateObject({
             ...pickBy(data.record, (_, key) => fields.includes(key)),
             objectID: pick(data.record, [idField])[idField],
-        });
+        }, {
+			createIfNotExists: true,
+		});
 
         return data;
     } catch (error) {
